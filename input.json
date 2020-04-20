@@ -1,0 +1,40 @@
+{
+    "project": {
+        "@xmlns": "http://maven.apache.org/POM/4.0.0",
+        "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+        "@xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd",
+        "modelVersion": "4.0.0",
+        "groupId": "com.mycompany.app",
+        "artifactId": "my-app",
+        "packaging": "jar",
+        "version": "1.0-SNAPSHOT",
+        "name": "my-app",
+        "url": "http://maven.apache.org",
+        "dependencies": {
+            "dependency": {
+                "groupId": "junit",
+                "artifactId": "junit",
+                "version": "4.11",
+                "scope": "test"
+            }
+        },
+        "build": {
+            "plugins": {
+                "plugin": {
+                    "groupId": "org.apache.maven.plugins",
+                    "artifactId": "maven-jar-plugin",
+                    "version": "3.0.2",
+                    "configuration": {
+                        "archive": {
+                            "manifest": {
+                                "addClasspath": "true",
+                                "classpathPrefix": "lib/",
+                                "mainClass": "com.mycompany.app.App"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
