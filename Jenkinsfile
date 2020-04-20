@@ -13,7 +13,7 @@ pipeline {
             steps {
                 echo 'Hello World'
                 script {
-                    def props = readJSON file: 'input.json'
+                    echo "TEST1"
                     }
             }
         }
