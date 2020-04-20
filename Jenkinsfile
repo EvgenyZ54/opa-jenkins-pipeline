@@ -14,7 +14,7 @@ pipeline {
                 echo 'Hello World'
 
                 script {
-                    def props = readJSON file: 'dir/input.json'
+                    def browsers = ['chrome', 'firefox']
 
                     }
             }
