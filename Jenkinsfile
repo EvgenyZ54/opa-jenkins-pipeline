@@ -13,7 +13,11 @@ pipeline {
             steps {
                 echo 'Hello World'
                 script {
-                    readJSON file: './input.json'
+                    def props = readJSON text: '{ "key": null, "a": "b" }', returnPojo: true
+                    assert props['key'] == null
+                    props.each { key, value ->
+                        echo "Walked through key $key and value $value"
+                    }
                 }
             }
         }
