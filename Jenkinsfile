@@ -16,11 +16,13 @@ pipeline {
                     def testjson = readJSON file: 'input.json'
                     println(testjson)
 
+                    echo "${testjson}"
+                                                    
                     httpRequest(url: 'http://localhost:8181/v1/data/j2opa/apply_maven',
                      acceptType: 'APPLICATION_JSON',
                      contentType: 'APPLICATION_JSON',
                      httpMode: 'POST',
-                     requestBody: testjson,
+                     requestBody: "${testjson}",
                      responseHandle: 'STRING',
                      validResponseCodes: '200')
             }
