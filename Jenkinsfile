@@ -13,9 +13,10 @@ pipeline {
             steps {
                 echo 'Hello World'
                 script {
-                    def browsers = ['chrome', 'firefox']
-                    for (int i = 0; i < browsers.size(); ++i) {
-                        echo "Testing the ${browsers[i]} browser"
+                    def props = readJSON text: '{ "key": null, "a": "b" }', returnPojo: true
+                    assert props['key'] == null
+                    props.each { key, value ->
+                        echo "Walked through key $key and value $value"
                     }
             }
         }
