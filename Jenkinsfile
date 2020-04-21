@@ -15,13 +15,16 @@ pipeline {
                 script {
                     def testjson = readJSON file: 'input.json'
                     println(testjson)
-                    response = httpRequest (consoleLogResponseBody: true,
+                    
+            }
+
+response = httpRequest (consoleLogResponseBody: true,
                     contentType: 'APPLICATION_JSON',
                     httpMode: 'POST',
                     requestBody: command,
                     url: "http://localhost:8181/v1/data/j2opa/apply_maven",
                     validResponseCodes: '200')
-            }
+
         }
         }
         stage('Build') {
