@@ -13,9 +13,9 @@ pipeline {
             steps {
                 echo 'Hello World'
                 script {
-def props = readJSON file: '/input.json'
-assert props['project'] == null
-                    }
+                  def data = readFile(file: 'input.json')
+                   println(data)
+                }
             }
         }
         }
