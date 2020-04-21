@@ -15,18 +15,12 @@ pipeline {
                 script {
                     def testjson = readJSON file: 'input.json'
                     println(testjson)
-
-                    def post = new URL("http://localhost:8181/v1/data/j2opa/apply_maven").openConnection();
-                    def message = testjson
-                    post.setRequestMethod("POST")
-                    post.setDoOutput(true)
-                    post.setRequestProperty("Content-Type", "application/json")
-                    post.getOutputStream().write(message.getBytes("UTF-8"));
-                    def postRC = post.getResponseCode();
-                    println(postRC);
-                    if(postRC.equals(200)) {
-                        println(post.getInputStream().getText());
-                }
+                    response = httpRequest (consoleLogResponseBody: true,
+                    contentType: 'APPLICATION_JSON',
+                    httpMode: 'POST',
+                    requestBody: command,
+                    url: "http://localhost:8181/v1/data/j2opa/apply_maven",
+                    validResponseCodes: '200')
             }
         }
         }
