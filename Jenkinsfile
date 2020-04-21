@@ -12,7 +12,6 @@ pipeline {
         stage('Rego check'){
             steps {
                 echo 'Hello World'
-                echo $WORKSPACE
                 script {
                    
                 }
