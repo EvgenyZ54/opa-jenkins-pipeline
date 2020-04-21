@@ -14,7 +14,7 @@ pipeline {
                 echo 'Hello World'
                 echo $WORKSPACE
                 script {
-                    echo 'Hello World'
+                   
                 }
             }
         }
