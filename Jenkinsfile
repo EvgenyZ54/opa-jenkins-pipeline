@@ -16,7 +16,7 @@ pipeline {
                     def testjson = readJSON file: 'input.json'
                     println(testjson)
 
-                    def response = httpRequest "http://localhost:8181/v1/policies"
+                    def response = httpRequest "http://host.docker.internal:8181/v1/policies"
                     println('Status: '+response.status)
                     println('Response: '+response.content)
 
