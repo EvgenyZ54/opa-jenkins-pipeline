@@ -13,7 +13,7 @@ pipeline {
             steps {
                 echo 'Hello World'
                 script {
-                    echo "TEST1"
+                    echo 'TEST1'
                     }
             }
         }
