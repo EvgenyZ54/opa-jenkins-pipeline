@@ -20,7 +20,7 @@ pipeline {
                      acceptType: 'APPLICATION_JSON',
                      contentType: 'APPLICATION_JSON',
                      httpMode: 'POST',
-                     requestBody: "${testjson}",
+                     requestBody: testjson,
                      responseHandle: 'STRING',
                      validResponseCodes: '200')
             }
