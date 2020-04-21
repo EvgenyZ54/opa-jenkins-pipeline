@@ -16,6 +16,10 @@ pipeline {
                     def testjson = readJSON file: 'input.json'
                     println(testjson)
 
+                    def response = httpRequest "http://localhost:8181/v1/policies"
+                    println('Status: '+response.status)
+                    println('Response: '+response.content)
+
                     echo "${testjson}"
 
                     httpRequest(url: 'http://localhost:8181/v1/data/j2opa/apply_maven',
