@@ -21,7 +21,7 @@ pipeline {
 response = httpRequest (consoleLogResponseBody: true,
                     contentType: 'APPLICATION_JSON',
                     httpMode: 'POST',
-                    requestBody: command,
+                    requestBody: testjson,
                     url: "http://localhost:8181/v1/data/j2opa/apply_maven",
                     validResponseCodes: '200')
 
