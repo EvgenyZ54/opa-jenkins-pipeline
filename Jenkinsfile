@@ -13,8 +13,10 @@ pipeline {
             steps {
                 echo 'Hello World'
                 script {
-                  def data = readFile(file: 'input.json')
-                   println(data)
+                   def date = new Date()
+                   def data = "Hello World\nSecond line\n" + date
+                   writeFile(file: 'zorg.txt', text: data)
+                   sh "ls -l"
                 }
             }
         }
