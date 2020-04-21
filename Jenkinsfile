@@ -13,12 +13,7 @@ pipeline {
             steps {
                 echo 'Hello World'
                 script {
-                 try {
                     readJSON file: './input.json'
-                    } catch(e) {
-                        echo "Caught: ${e} JSON not valid."
-                        currentBuild.result = 'FAILURE'
-                    }  
                 }
             }
         }
