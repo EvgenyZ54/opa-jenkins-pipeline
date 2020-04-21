@@ -22,7 +22,7 @@ pipeline {
                      acceptType: 'APPLICATION_JSON',
                      contentType: 'APPLICATION_JSON',
                      httpMode: 'POST',
-                     timeout: '1000',
+                     timeout: 1000,
                      requestBody: "${testjson}",
                      responseHandle: 'STRING',
                      validResponseCodes: '200')
