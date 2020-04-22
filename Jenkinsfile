@@ -16,13 +16,13 @@ pipeline {
                     def testjson = readJSON file: 'input.json'
                     println(testjson)
 
-                    def response = httpRequest "http://host.docker.internal:8181/v1/policies"
+                    def response = httpRequest "http://172.22.0.5:8181/v1/policies"
                     println('Status: '+response.status)
                     println('Response: '+response.content)
 
                     echo "${testjson}"
 
-                    httpRequest(url: 'http://localhost:8181/v1/data/j2opa/apply_maven',
+                    httpRequest(url: 'http://172.22.0.5:8181/v1/data/j2opa/apply_maven',
                      acceptType: 'APPLICATION_JSON',
                      contentType: 'APPLICATION_JSON',
                      httpMode: 'POST',
