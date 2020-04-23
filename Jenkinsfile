@@ -33,8 +33,9 @@ pipeline {
                      requestBody: "${testrego}",
                      responseHandle: 'STRING',
                      validResponseCodes: '200')
+                     
                     
-                    httpRequest(url: 'http://172.22.0.5:8181/v1/data/j2opa/apply_maven',
+                    httpRequest(url: 'http://172.22.0.5:8181/v1/data',
                      acceptType: 'APPLICATION_JSON',
                      contentType: 'APPLICATION_JSON',
                      httpMode: 'POST',
