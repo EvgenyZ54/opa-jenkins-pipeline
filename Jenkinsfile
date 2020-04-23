@@ -25,6 +25,16 @@ pipeline {
 
                     echo "${testjson}"
 
+                    httpRequest(url: 'http://172.22.0.5:8181/v1/policies/test1',
+                     acceptType: 'TEXT_PLAIN',
+                     contentType: 'APPLICATION_JSON',
+                     httpMode: 'PUT',
+                     timeout: 1000,
+                     requestBody: "${testjson}",
+                     responseHandle: 'STRING',
+                     validResponseCodes: '200')
+            }
+
                     httpRequest(url: 'http://172.22.0.5:8181/v1/data/j2opa/apply_maven',
                      acceptType: 'APPLICATION_JSON',
                      contentType: 'APPLICATION_JSON',
