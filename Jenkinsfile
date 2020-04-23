@@ -35,10 +35,9 @@ pipeline {
                      validResponseCodes: '200')
                     
                     def res1 = httpRequest(url: 'http://172.22.0.5:8181/v1/data/j2opa/apply_maven',
-                     acceptType: 'APPLICATION_JSON',
                      contentType: 'APPLICATION_JSON',
                      httpMode: 'POST',
-                     requestBody: "",
+                     requestBody: "${testjson}",
                      responseHandle: 'STRING',
                      validResponseCodes: '200')
 
