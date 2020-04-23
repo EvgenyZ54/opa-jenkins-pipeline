@@ -13,11 +13,14 @@ pipeline {
             steps {
                 echo 'Hello World'
                 script {
-                    def testjson = readJSON file: 'test.json'
+                    def testjson = readJSON file: 'input.json'
                     println(testjson)
 
                     def testrego = readFile(file: 'test.rego')
                     println(testrego)
+
+                    def testjson_ = readFile(file: 'input.json')
+                    println(testjson_)
 
                     def response = httpRequest "http://172.22.0.5:8181/v1/policies"
                     println('Status: '+response.status)
@@ -33,12 +36,14 @@ pipeline {
                      requestBody: "${testrego}",
                      responseHandle: 'STRING',
                      validResponseCodes: '200')
+
+
                     
                     def res1 = httpRequest(url: 'http://172.22.0.5:8181/v1/data/j2opa/apply_maven',
                      acceptType: 'APPLICATION_JSON',
                      contentType: 'APPLICATION_JSON',
                      httpMode: 'POST',
-                     requestBody: "${testjson}",
+                     requestBody: "${testjson_}",
                      responseHandle: 'STRING',
                      validResponseCodes: '200')
 
