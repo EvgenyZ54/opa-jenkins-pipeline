@@ -34,13 +34,18 @@ pipeline {
                      responseHandle: 'STRING',
                      validResponseCodes: '200')
                     
-                    httpRequest(url: 'http://172.22.0.5:8181/v1/data/j2opa/apply_maven',
+                    def res1 = httpRequest(url: 'http://172.22.0.5:8181/v1/data/j2opa/apply_maven',
                      acceptType: 'APPLICATION_JSON',
                      contentType: 'APPLICATION_JSON',
                      httpMode: 'POST',
                      requestBody: "${testjson}",
                      responseHandle: 'STRING',
                      validResponseCodes: '200')
+                     
+                    println('Status: '+res1.status)
+                    println('Response: '+res1.content)
+
+
             }
 
 
