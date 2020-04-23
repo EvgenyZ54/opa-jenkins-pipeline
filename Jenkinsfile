@@ -27,7 +27,7 @@ pipeline {
 
                     httpRequest(url: 'http://172.22.0.5:8181/v1/policies/test1',
                      acceptType: 'TEXT_PLAIN',
-                     contentType: 'APPLICATION_JSON',
+                     contentType: 'TEXT_PLAIN',
                      httpMode: 'PUT',
                      timeout: 1000,
                      requestBody: "${testrego}",
