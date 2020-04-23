@@ -16,6 +16,9 @@ pipeline {
                     def testjson = readJSON file: 'input.json'
                     println(testjson)
 
+                    def testrego = readFile(file: 'test.rego')
+                    println(testrego)
+
                     def response = httpRequest "http://172.22.0.5:8181/v1/policies"
                     println('Status: '+response.status)
                     println('Response: '+response.content)
