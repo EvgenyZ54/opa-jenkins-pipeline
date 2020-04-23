@@ -30,7 +30,7 @@ pipeline {
                      contentType: 'APPLICATION_JSON',
                      httpMode: 'PUT',
                      timeout: 1000,
-                     requestBody: "${testjson}",
+                     requestBody: "${testrego}",
                      responseHandle: 'STRING',
                      validResponseCodes: '200')
 
