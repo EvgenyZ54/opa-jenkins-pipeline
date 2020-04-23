@@ -38,10 +38,10 @@ pipeline {
                      acceptType: 'APPLICATION_JSON',
                      contentType: 'APPLICATION_JSON',
                      httpMode: 'POST',
-                     requestBody: "${testjson}",
+                     requestBody: "",
                      responseHandle: 'STRING',
                      validResponseCodes: '200')
-                     
+
                     println('Status: '+res1.status)
                     println('Response: '+res1.content)
 
