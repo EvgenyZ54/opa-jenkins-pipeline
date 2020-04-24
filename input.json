@@ -14,7 +14,7 @@
         "url": "http://maven.apache.org",
         "dependencies": {
             "dependency": {
-                "groupId": "junit",
+                "groupId": "junit1",
                 "artifactId": "junit",
                 "version": "4.11",
                 "scope": "test"
