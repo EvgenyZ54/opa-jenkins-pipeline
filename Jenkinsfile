@@ -51,7 +51,7 @@ pipeline {
                     println('Response: '+res1.content)
 
                     def props = readJSON text: res1.content
-                    println(props['status'])
+                    println(props[0])
 
             }
 
