@@ -53,7 +53,7 @@ pipeline {
                     def props = readJSON text: res1.content
                     println(props)
                     println(props['result'].status)
-                    if (props['result'].status == 1) 
+                    if (props['result'].status == 0) 
                         error("Ошибка")
                     
 
