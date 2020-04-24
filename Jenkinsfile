@@ -50,9 +50,7 @@ pipeline {
                     println('Status: '+res1.status)
                     println('Response: '+res1.content)
 
-                    if (res1.content.result.status == 0)
-                         error("нет junit")
-
+                    def props = readJSON text: $res1.content
 
             }
 
