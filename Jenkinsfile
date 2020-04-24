@@ -50,7 +50,7 @@ pipeline {
                     println('Status: '+res1.status)
                     println('Response: '+res1.content)
 
-                    def props = readJSON text: $res1.content
+                    def props = readJSON text: res1.content
 
             }
 
