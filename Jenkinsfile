@@ -48,9 +48,7 @@ pipeline {
                     println(props)
                     println(props['result'].status)
                     if (props['result'].status == 0) 
-                        error("Don't pass Junit version check " + (props['result'].name )
-                    
-
+                        error("Don't pass Junit version check ")
             }
 
 
