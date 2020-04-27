@@ -9,12 +9,10 @@ pipeline {
         skipStagesAfterUnstable()
     }
     stages {
-        stage('Rego check'){
+        stage('Junit version check'){
             steps {
                 echo 'Hello World'
                 script {
-                    def testjson = readJSON file: 'input.json'
-                    println(testjson)
 
                     def testrego = readFile(file: 'test.rego')
                     println(testrego)
@@ -26,8 +24,6 @@ pipeline {
                     println('Status: '+response.status)
                     println('Response: '+response.content)
 
-                    echo "${testjson}"
-
                     httpRequest(url: 'http://172.22.0.5:8181/v1/policies/test1',
                      acceptType: 'TEXT_PLAIN',
                      contentType: 'TEXT_PLAIN',
@@ -37,8 +33,6 @@ pipeline {
                      responseHandle: 'STRING',
                      validResponseCodes: '200')
 
-
-                    
                     def res1 = httpRequest(url: 'http://172.22.0.5:8181/v1/data/j2opa/apply_maven',
                      acceptType: 'APPLICATION_JSON',
                      contentType: 'APPLICATION_JSON',
@@ -54,7 +48,7 @@ pipeline {
                     println(props)
                     println(props['result'].status)
                     if (props['result'].status == 0) 
-                        error("Ошибка")
+                        error("Don't pass Junit version check " + (props['result'].name )
                     
 
             }
