@@ -16,7 +16,7 @@
             "dependency": {
                 "groupId": "junit",
                 "artifactId": "junit",
-                "version": "4.11",
+                "version": "4.08",
                 "scope": "test"
             }
         },
